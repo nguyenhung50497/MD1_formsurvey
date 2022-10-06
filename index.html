@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    fieldset {
+        border: none;
+        border-top: 1px solid black;
+    }
+    h2 {
+        font-size: 18px;
+    }
+    .box1, .box2 {
+        width: 50%;
+        height: 25px;
+    }
+    .box3 {
+        width: 100px;
+    }
+    .box4 {
+        width: 50px;
+    }
+    .box5 {
+        width: 100%;
+    }
+    table, th, td {
+        border: 1px solid #a6a6a6;
+        border-collapse: collapse;
+        width: 100%;
+        padding: 5px;
+    }
+    .cot1 {
+        width: 40%;
+        text-align: left;
+    }
+    .cot2 {
+        width: 15%;
+    }
+    tr {
+        height: 40px;
+    }
+    .hang1 {
+        background-color: #bebebe;
+    }
+    .hang3 {
+        background-color: #e0e0e0;
+    }
+</style>
+<body>
+<form action="">
+    <fieldset>
+        <div>
+            <h1>Market Research Survey</h1>
+            <p>Please take a few moments to complete this satisfaction survey</p>
+            <hr>
+        </div>
+        <div>
+            <h2>What is your age range?</h2>
+            <select name="age" id="age1" class="box1">
+                <option value="18y">18-24</option>
+                <option value="25y">25-34</option>
+                <option value="35y">35-49</option>
+                <option value="50y">50+</option>
+            </select>
+        </div>
+        <div>
+            <h2>What is your yearly income range?</h2>
+            <select name="yearly" id="yearly" class="box2">
+                <option value="y1">$0 - $25,000</option>
+                <option value="y2">$25,001 - $50,000</option>
+                <option value="y3">$50,001 - $100,000</option>
+                <option value="y4">$100,000+</option>
+            </select>
+        </div>
+        <div>
+            <h2>Gender Identify</h2>
+            <input type="radio" name="gender"><span>Male</span><br>
+            <input type="radio" name="gender"><span>Female</span><br>
+            <input type="radio" name="gender"><span>Nonbinary</span><br>
+            <input id="gender01" name="gender" type="radio" class="gender" value="Other" tabindex="0"
+                   onchange="handleInput(this);handleRadioOther(this.name, true);" onmouseup="handleInput(this);">
+            <span>Other</span><br>
+            <input id="gender_other" name="gender_other_Other" type="text" class="gender other" value=""
+                   maxlength="250"
+                   onclick="document.getElementById('gender01').checked = 'checked';handleRadioOther('gender', true);"
+                   onkeyup="handleInput(this);validateRange(505, 'character');" onchange="handleInput(this);"
+                   tabindex="0">
+        </div>
+        <div>
+            <h2>Which of the following products have your purchased in the last 2 months. Please check all that
+                apply</h2>
+            <input type="checkbox" name="product1"><span>Product 1</span><br>
+            <input type="checkbox" name="product2"><span>Product 2</span><br>
+            <input type="checkbox" name="product3"><span>Product 3</span>
+        </div>
+        <div>
+            <h2>How often would you use our new product?</h2>
+            <input type="radio" name="often"><span>Daily</span><br>
+            <input type="radio" name="often"><span>Weekly</span><br>
+            <input type="radio" name="often"><span>Monthly</span>
+        </div>
+        <div>
+            <h2>What would you pay for the new product?</h2>
+            <span>$</span><input type="number" class="box3"><span>.</span><input type="number" class="box4">
+        </div>
+        <div>
+            <h2>What features would you like to see in the new product.</h2>
+            <textarea name="features" id="f1" cols="30" rows="10" class="box5"></textarea>
+        </div>
+        <div>
+            <h2>Please rate your level of agreement with the following statements</h2>
+            <table>
+                <tr class="hang1">
+                    <th class="cot1"></th>
+                    <th class="cot2">Strongly Disagree</th>
+                    <th class="cot2">Disagree</th>
+                    <th class="cot2">Agree</th>
+                    <th class="cot2">Strongly Agree</th>
+                </tr>
+                <tr class="hang2">
+                    <th class="cot1">Our products are priced fairly.</th>
+                    <th class="cot2">
+                        <input type="radio" name="priced"><br>1
+                    </th>
+                    <th class="cot2">
+                        <input type="radio" name="priced"><br>2
+                    </th>
+                    <th class="cot2">
+                        <input type="radio" name="priced"><br>3
+                    </th>
+                    <th class="cot2">
+                        <input type="radio" name="priced"><br>4
+                    </th>
+                </tr>
+                <tr class="hang3">
+                    <th class="cot1">Our products are high quality.</th>
+                    <th class="cot2">
+                        <input type="radio" name="quality"><br>1
+                    </th>
+                    <th class="cot2">
+                        <input type="radio" name="quality"><br>2
+                    </th>
+                    <th class="cot2">
+                        <input type="radio" name="quality"><br>3
+                    </th>
+                    <th class="cot2">
+                        <input type="radio" name="quality"><br>4
+                    </th>
+                </tr>
+                <tr class="hang4">
+                    <th class="cot1">You would recommend our product to a friend or coworker.</th>
+                    <th class="cot2">
+                        <input type="radio" name="recom"><br>1
+                    </th>
+                    <th class="cot2">
+                        <input type="radio" name="recom"><br>2
+                    </th>
+                    <th class="cot2">
+                        <input type="radio" name="recom"><br>3
+                    </th>
+                    <th class="cot2">
+                        <input type="radio" name="recom"><br>4
+                    </th>
+                </tr>
+            </table>
+        </div>
+    </fieldset>
+</form>
+</body>
+</html>
